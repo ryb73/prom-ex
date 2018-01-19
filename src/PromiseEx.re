@@ -24,6 +24,11 @@ let mapMaybe callback => map (fun
     | Some v => Some (callback v)
 );
 
+let tapMaybe callback => tap(fun
+    | None => ()
+    | Some v => callback v
+);
+
 exception EmptyOption;
 let _getOpt = fun
     | Some v => v

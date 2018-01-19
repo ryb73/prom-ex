@@ -11,4 +11,9 @@ resolve 2
         Js.log ok;
     })
     |> thenResolve "lol"
-    |> map Js.log;
+    |> map Js.log
+    |> thenResolve (Some 9)
+    |> tapMaybe (Js.log2 "it's")
+    |> tapMaybe (Js.log2 "it's still")
+    |> thenResolve None
+    |> tapMaybe (Js.log2 "not this time");
