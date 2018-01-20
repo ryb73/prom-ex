@@ -1,5 +1,6 @@
 {
     "name" : "bs-promise-ex",
+    "bs-dev-dependencies": [ "bs-batteries" ],
     "sources" : [
         { "dir" : "src" },
         {

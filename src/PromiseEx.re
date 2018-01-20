@@ -26,7 +26,7 @@ let mapMaybe = (callback) => map(fun
 );
 
 let tapMaybe = (callback) => tap(fun
-    | None => ()
+    | None => resolve()
     | Some(v) => callback(v)
 );
 
