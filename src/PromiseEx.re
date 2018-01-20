@@ -1,43 +1,53 @@
-open Js.Promise;
-open Js.Result;
+module type Promise = {
+    type t('a);
+    let then_ : ('a => t('b)) => t('a) => t('b);
+    let resolve : 'a => t('a);
+};
 
-let map = (callback) => then_((v) => resolve(callback(v)));
+module Make = (Promise : Promise) => {
+    open Promise;
+    open Js.Result;
 
-let tap = (callback) => map((v) => {
-    callback(v);
-    v;
-});
+    let map = (callback) => then_((v) => resolve(callback(v)));
 
-let thenResolve = (v) => then_((_) => resolve(v));
+    let tap = (callback) => map((v) => {
+        callback(v);
+        v;
+    });
 
-let invertOptional = fun
-    | None => resolve(None)
-    | Some(p) => map((v) => Some(v), p);
+    let thenResolve = (v) => then_((_) => resolve(v));
 
-let thenMaybe = (callback) => then_ (fun
-    | None => resolve(None)
-    | Some(v) => callback(v)
-        |> map((v) => Some(v))
-);
+    let invertOptional = fun
+        | None => resolve(None)
+        | Some(p) => map((v) => Some(v), p);
 
-let mapMaybe = (callback) => map(fun
-    | None => None
-    | Some(v) => Some(callback(v))
-);
+    let thenMaybe = (callback) => then_ (fun
+        | None => resolve(None)
+        | Some(v) => callback(v)
+            |> map((v) => Some(v))
+    );
 
-let tapMaybe = (callback) => tap(fun
-    | None => resolve()
-    | Some(v) => callback(v)
-);
+    let mapMaybe = (callback) => map(fun
+        | None => None
+        | Some(v) => Some(callback(v))
+    );
 
-exception EmptyOption;
-let _getOpt = fun
-    | Some(v) => v
-    | _ => raise(EmptyOption);
+    let tapMaybe = (callback) => tap(fun
+        | None => resolve()
+        | Some(v) => callback(v)
+    );
 
-let unwrapResult = (promise) => map(
-    fun
-      | Ok(v) => v
-      | Error(e) => e |> Obj.magic |> raise,
-    promise
-);
+    exception EmptyOption;
+    let _getOpt = fun
+        | Some(v) => v
+        | _ => raise(EmptyOption);
+
+    let unwrapResult = (promise) => map(
+        fun
+        | Ok(v) => v
+        | Error(e) => e |> Obj.magic |> raise,
+        promise
+    );
+};
+
+include Make(Js.Promise);
