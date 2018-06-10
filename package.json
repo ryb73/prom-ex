@@ -23,6 +23,6 @@
     "url": "git@github.com:ryb73/bs-promise-ex.git"
   },
   "peerDependencies": {
-    "bs-platform": "^2.0.0"
+    "bs-platform": "^3.0.0"
   }
 }
