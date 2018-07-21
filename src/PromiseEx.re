@@ -6,7 +6,7 @@ module type Promise = {
 
 module Make = (Promise : Promise) => {
     open Promise;
-    open Js.Result;
+    open Belt.Result;
 
     let map = (callback) => then_((v) => resolve(callback(v)));
 
