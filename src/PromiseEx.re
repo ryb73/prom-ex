@@ -2,6 +2,10 @@ module type Promise = {
     type t('a);
     let then_ : ('a => t('b)) => t('a) => t('b);
     let resolve : 'a => t('a);
+    let reject : exn => t(_);
+    let make :
+        ((~resolve: (. 'a) => unit) => (~reject: (. exn) => unit) => unit)
+        => t('a);
 };
 
 module Make = (Promise : Promise) => {

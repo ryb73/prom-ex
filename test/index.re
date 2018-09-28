@@ -33,6 +33,6 @@ p
         Js.Exn.raiseError("done");
     })
     |> catch((exn) => {
-        Js.log(exn);
+        Js.log2("and...", exn);
         resolve ();
     });
