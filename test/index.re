@@ -1,4 +1,4 @@
-open Js.Promise;
+open Reduice.Promise;
 open PromiseEx;
 
 let (%>) = BatPervasives.(%>);
@@ -23,7 +23,7 @@ resolve(2)
 
 
 [@bs.val] external setTimeout : (((unit) => unit), int) => unit = "";
-let p = Js.Promise.make((~resolve, ~reject as _) => {
+let p = Reduice.Promise.make((~resolve, ~reject as _) => {
     setTimeout(u => [@bs] resolve(u), 10);
 });
 

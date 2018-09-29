@@ -1,6 +1,11 @@
 {
     "name" : "bs-promise-ex",
-    "bs-dev-dependencies": [ "bs-batteries" ],
+    "bs-dependencies": [
+        "reduice",
+    ],
+    "bs-dev-dependencies": [
+        "bs-batteries",
+    ],
     "sources" : [
         { "dir" : "src" },
         {
