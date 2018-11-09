@@ -17,7 +17,7 @@ let invertOptional = fun
     | None => resolve(None)
     | Some(p) => map(v => Some(v), p);
 
-let thenMaybe = (callback) => then_ (fun
+let thenMaybe = (callback) => then_(fun
     | None => resolve(None)
     | Some(v) =>
         callback(v)
@@ -29,10 +29,12 @@ let mapMaybe = (callback) => map(fun
     | Some(v) => Some(callback(v))
 );
 
-let tapMaybe = (callback) => tap(fun
-    | None => resolve()
-    | Some(v) => callback(v)
-);
+let tapMaybe = (callback, promise) =>
+    promise
+    |> tap(fun
+        | None => ()
+        | Some(v) => callback(v) |> ignore
+    );
 
 let unwrapResult = (promise) => map(
     fun
