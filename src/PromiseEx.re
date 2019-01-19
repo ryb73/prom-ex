@@ -42,3 +42,7 @@ let unwrapResult = (promise) => map(
     | Error(e) => e |> Obj.magic |> raise,
     promise
 );
+
+let amend = (f) => map(v => (v, f(v)));
+
+let flatAmend = (f) => then_(v => all2((resolve(v), f(v))));
