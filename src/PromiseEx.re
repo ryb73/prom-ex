@@ -46,3 +46,5 @@ let unwrapResult = (promise) => map(
 let amend = (f) => map(v => (v, f(v)));
 
 let flatAmend = (f) => then_(v => all2((resolve(v), f(v))));
+
+let flatten = (outer) => then_(inner => inner, outer);
