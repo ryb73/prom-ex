@@ -1,5 +1,5 @@
 {
-  "name": "bs-promise-ex",
+  "name": "@ryb73/prom-ex",
   "version": "0.0.1",
   "description": "",
   "main": "index.js",
@@ -10,6 +10,10 @@
     "clean": "rm -rf lib && bsb -clean-world",
     "postinstall": "[ ! -f package-links.json ] || ppl link-file"
   },
+  "files": [
+    "/bsconfig.json",
+    "/src"
+  ],
   "keywords": [
     "bucklescript",
     "reason",
@@ -21,13 +25,13 @@
   "_": [],
   "repository": {
     "type": "git",
-    "url": "git@github.com:ryb73/bs-promise-ex.git"
+    "url": "git@github.com:ryb73/prom-ex.git"
   },
   "peerDependencies": {
     "bs-platform": "4.0.0"
   },
-  "devDependencies": {
+  "dependencies": {
     "bs-batteries": "0.0.14",
-    "reduice": "0.0.1"
+    "@ryb73/reduice": "0.0.2"
   }
 }

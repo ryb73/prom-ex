@@ -1,1 +1,2 @@
-# bs-promise-ex
+# prom-ex
+Utility for Bucklescript promises
