@@ -20,8 +20,3 @@ bluebird@^3.5.1:
   version "3.5.3"
   resolved "https://registry.yarnpkg.com/bluebird/-/bluebird-3.5.3.tgz#7d01c6f9616c9a51ab0f8c549a79dfe6ec33efa7"
   integrity sha512-/qKPUQlaW1OyR51WeCPBvRnAlnZFUJkCSG5HzGnuIqhgyJtF+T94lFnn33eiazjRm2LAHVy2guNnaq48X9SJuw==
-
-bs-batteries@0.0.14:
-  version "0.0.14"
-  resolved "https://registry.yarnpkg.com/bs-batteries/-/bs-batteries-0.0.14.tgz#51536a489615087c05774525c38ab56b4d45df4c"
-  integrity sha1-UVNqSJYVCHwFd0Ulw4q1a01F30w=
