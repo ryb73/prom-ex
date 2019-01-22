@@ -31,7 +31,7 @@
     "bs-platform": "4.0.0"
   },
   "dependencies": {
-    "bs-batteries": "0.0.14",
-    "@ryb73/reduice": "0.0.2"
+    "@ryb73/reduice": "0.0.4",
+    "bs-batteries": "0.0.14"
   }
 }
