@@ -1,4 +1,4 @@
-open Reduice.Promise;
+open Js.Promise;
 
 let map: ('a => 'b, t('a)) => t('b);
 let thenResolve: ('a, t('b)) => t('a);

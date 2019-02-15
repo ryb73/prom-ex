@@ -1,8 +1,8 @@
-open Reduice.Promise;
+open Js.Promise;
 open PromEx;
 
 [@bs.val] external setTimeout : (((unit) => unit), int) => unit = "";
-let p = Reduice.Promise.make((~resolve, ~reject as _) => {
+let p = Js.Promise.make((~resolve, ~reject as _) => {
     setTimeout(u => [@bs] resolve(u), 10);
 });
 

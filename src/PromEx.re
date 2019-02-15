@@ -1,4 +1,4 @@
-open Reduice.Promise;
+open Js.Promise;
 open Belt.Result;
 
 let map = (callback) => then_(v => resolve(callback(v)));
