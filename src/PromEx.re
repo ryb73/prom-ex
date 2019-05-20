@@ -36,13 +36,6 @@ let tapMaybe = (callback, promise) =>
         | Some(v) => callback(v) |> ignore
     );
 
-let unwrapResult = (promise) => map(
-    fun
-    | Ok(v) => v
-    | Error(e) => e |> Obj.magic |> raise,
-    promise
-);
-
 let amend = (f) => map(v => (v, f(v)));
 
 let flatAmend = (f) => then_(v => all2((resolve(v), f(v))));
