@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Warning: no test specified\"",
+    "test": "jest",
     "build": "npm run clean && bsb -make-world",
     "watch": "npm run clean && bsb -make-world -w",
     "clean": "rm -rf lib && bsb -clean-world",
@@ -30,5 +30,8 @@
   },
   "peerDependencies": {
     "bs-platform": "^5.0.0"
+  },
+  "devDependencies": {
+    "@glennsl/bs-jest": "^0.4.8"
   }
 }

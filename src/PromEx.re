@@ -16,25 +16,6 @@ let invertOptional = fun
     | None => resolve(None)
     | Some(p) => map(v => Some(v), p);
 
-let thenMaybe = (callback) => then_(fun
-    | None => resolve(None)
-    | Some(v) =>
-        callback(v)
-        |> map(result => Some(result))
-);
-
-let mapMaybe = (callback) => map(fun
-    | None => None
-    | Some(v) => Some(callback(v))
-);
-
-let tapMaybe = (callback, promise) =>
-    promise
-    |> tap(fun
-        | None => ()
-        | Some(v) => callback(v) |> ignore
-    );
-
 let amend = (f) => map(v => (v, f(v)));
 
 let flatAmend = (f) => then_(v => all2((resolve(v), f(v))));
