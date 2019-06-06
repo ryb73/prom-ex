@@ -26,10 +26,12 @@ resolve(2)
 })
 |> thenResolve(None)
 |> tapMaybe(Js.log2("not this time"))
+|> always(() => Js.log("always1"))
 |> then_(_ => {
     Js.log("woah");
     Js.Exn.raiseError("done");
 })
+|> always(() => Js.log("always2"))
 |> catch((exn) => {
     Js.log2("and...", exn);
     resolve ();

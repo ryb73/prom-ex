@@ -1,5 +1,4 @@
 open Js.Promise;
-open Belt.Result;
 
 let map = (callback) => then_(v => resolve(callback(v)));
 
@@ -41,3 +40,13 @@ let amend = (f) => map(v => (v, f(v)));
 let flatAmend = (f) => then_(v => all2((resolve(v), f(v))));
 
 let flatten = (outer) => then_(inner => inner, outer);
+
+let always = (cb, promise) =>
+    promise
+    |> catch(exn => {
+        resolve(cb())
+        |> catch(_ => reject(Obj.magic(exn)))
+        |> then_(_ => reject(Obj.magic(exn)))
+    })
+    |> tap(_ => cb());
+
