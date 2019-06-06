@@ -66,6 +66,22 @@ describe("invertOptional", () => {
     );
 });
 
+describe("thenMaybe", () => {
+    testPromise("some", () =>
+        resolve(Some(1))
+        |> thenMaybe(v => resolve(v + 1))
+        |> map(expect)
+        |> map(toBe(Some(2)))
+    );
+
+    testPromise("none", () =>
+        resolve(None)
+        |> thenMaybe(_ => failwith("no"))
+        |> map(expect)
+        |> map(toBe(None))
+    );
+});
+
 testPromise("amend", () =>
     resolve(2)
     |> amend(x => x * 2)

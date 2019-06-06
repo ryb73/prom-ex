@@ -16,6 +16,13 @@ let invertOptional = fun
     | None => resolve(None)
     | Some(p) => map(v => Some(v), p);
 
+let thenMaybe = (callback) => then_(fun
+    | None => resolve(None)
+    | Some(v) =>
+        callback(v)
+        |> map(result => Some(result))
+);
+
 let amend = (f) => map(v => (v, f(v)));
 
 let flatAmend = (f) => then_(v => all2((resolve(v), f(v))));
