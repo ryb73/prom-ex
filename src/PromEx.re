@@ -38,3 +38,8 @@ let always = (cb, promise) =>
     })
     |> tap(_ => cb());
 
+let delay = (ms) =>
+    Js.Promise.make((~resolve, ~reject as _) =>
+        Js.Global.setTimeout(u => resolve(. u), ms)
+        |> ignore
+    );

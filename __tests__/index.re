@@ -48,6 +48,21 @@ describe("tap", () => {
         |> map(expect)
         |> map(toBe(1));
     });
+
+    testPromise("option", () => {
+        let num = ref(0);
+        resolve(Some(()))
+        // make sure this
+        |> tap(Belt.Option.map(_, () => {
+            delay(500)
+            |> map(_ => num := (num^ + 1) * 2);
+        }))
+        // runs before this
+        |> tap(_ => num := (num^ + 2) * 2)
+        |> map(_ => num^)
+        |> map(expect)
+        |> map(toBe(8))
+    });
 });
 
 describe("invertOptional", () => {
