@@ -43,3 +43,7 @@ let delay = (ms) =>
         Js.Global.setTimeout(u => resolve(. u), ms)
         |> ignore
     );
+
+module Map = {
+    let let_ = (p, cb) => map(cb, p);
+};

@@ -211,3 +211,11 @@ describe("always", () => {
         });
     });
 });
+
+describe("Map", () => {
+    testPromise("let", () => {
+        let%Map two = resolve(2);
+        let%Map four = resolve(2 + two);
+        expect(four) |> toBe(4);
+    });
+});
