@@ -43,3 +43,8 @@ let delay = (ms) =>
         Js.Global.setTimeout(u => resolve(. u), ms)
         |> ignore
     );
+
+module Then = {
+    let let_ = (p, cb) => then_(cb, p);
+    let try_ = (p, cb) => catch(cb, p);
+};

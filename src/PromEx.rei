@@ -10,3 +10,8 @@ let flatAmend: ('a => t('b), t('a)) => t(('a, 'b));
 let flatten: (t(t('a))) => t('a);
 let always: (unit => _, t('a)) => t('a);
 let delay: int => Js.Promise.t(unit);
+
+module Then: {
+    let let_: (t('a), 'a => t('b)) => t('b);
+    let try_: (t('a), error => t('a)) => t('a);
+};
