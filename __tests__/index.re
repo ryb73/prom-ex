@@ -3,10 +3,7 @@ open Expect;
 open Js.Promise;
 open PromEx;
 
-[@bs.val] external setTimeout : (((unit) => unit), int) => unit = "";
-let p = Js.Promise.make((~resolve, ~reject as _) => {
-    setTimeout(u => [@bs] resolve(u), 10);
-});
+let standardDelay = 100;
 
 testPromise("map", () =>
     resolve(2)
@@ -40,7 +37,7 @@ describe("tap", () => {
                 Js.Global.setTimeout(() => {
                     incr(tapped);
                     resolve(. ():unit);
-                }, 500)
+                }, standardDelay)
                 |> ignore
             )
         )
@@ -54,7 +51,7 @@ describe("tap", () => {
         resolve(Some(()))
         // make sure this
         |> tap(Belt.Option.map(_, () => {
-            delay(500)
+            delay(standardDelay)
             |> map(_ => num := (num^ + 1) * 2);
         }))
         // runs before this
@@ -149,7 +146,7 @@ describe("always", () => {
                     Js.Global.setTimeout(() => {
                         incr(tapped);
                         resolve(. ():unit);
-                    }, 500)
+                    }, standardDelay)
                     |> ignore
                 )
             )
@@ -167,7 +164,7 @@ describe("always", () => {
                         Js.Global.setTimeout(() => {
                             incr(tapped);
                             resolve(. ():unit);
-                        }, 500)
+                        }, standardDelay)
                         |> ignore
                     )
                 )
@@ -184,7 +181,7 @@ describe("always", () => {
                     Js.Promise.make((~resolve, ~reject as _) =>
                         Js.Global.setTimeout(() => {
                             resolve(. ():unit);
-                        }, 500)
+                        }, standardDelay)
                         |> ignore
                     )
                 )
@@ -200,7 +197,7 @@ describe("always", () => {
                     Js.Promise.make((~resolve as _, ~reject) =>
                         Js.Global.setTimeout(() => {
                             reject(. Failure("oof"));
-                        }, 500)
+                        }, standardDelay)
                         |> ignore
                     )
                 )
@@ -212,10 +209,18 @@ describe("always", () => {
     });
 });
 
-describe("Map", () => {
+describe("Then", () => {
     testPromise("let", () => {
-        let%Map two = resolve(2);
-        let%Map four = resolve(2 + two);
-        expect(four) |> toBe(4);
+        let%Then two = resolve(2);
+        let%Then four = resolve(2 + two);
+        expect(four) |> toBe(4) |> resolve;
+    });
+
+    testPromise("try", () => {
+        let exn = Failure("shucks");
+        let p = reject(exn);
+        try%Then p {
+            | e => Obj.magic(e) |> expect |> toBe(exn) |> resolve
+        }
     });
 });

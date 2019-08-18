@@ -11,6 +11,7 @@ let flatten: (t(t('a))) => t('a);
 let always: (unit => _, t('a)) => t('a);
 let delay: int => Js.Promise.t(unit);
 
-module Map: {
-    let let_: (t('a), 'a => 'b) => t('b);
+module Then: {
+    let let_: (t('a), 'a => t('b)) => t('b);
+    let try_: (t('a), error => t('a)) => t('a);
 };

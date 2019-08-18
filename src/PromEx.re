@@ -44,6 +44,7 @@ let delay = (ms) =>
         |> ignore
     );
 
-module Map = {
-    let let_ = (p, cb) => map(cb, p);
+module Then = {
+    let let_ = (p, cb) => then_(cb, p);
+    let try_ = (p, cb) => catch(cb, p);
 };
