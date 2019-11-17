@@ -1,6 +1,6 @@
 {
   "name": "@ryb73/prom-ex",
-  "version": "0.3.1",
+  "version": "0.4.0-bs6",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -12,8 +12,7 @@
   },
   "files": [
     "/bsconfig.json",
-    "/src",
-    "/lib/js/src"
+    "/src"
   ],
   "keywords": [
     "bucklescript",
@@ -29,12 +28,10 @@
     "url": "git@github.com:ryb73/prom-ex.git"
   },
   "peerDependencies": {
-    "bs-platform": "^5.0.0"
+    "bs-platform": "^6.0.0"
   },
   "devDependencies": {
-    "@glennsl/bs-jest": "^0.4.9"
-  },
-  "dependencies": {
-    "let-anything": "^1.0.3"
+    "@glennsl/bs-jest": "^0.4.9",
+    "bs-platform": "6.0.0"
   }
 }

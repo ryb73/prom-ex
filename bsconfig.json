@@ -9,6 +9,6 @@
         }
     ],
     "refmt": 3,
-    "ppx-flags": [ "let-anything/ppx" ],
+    // "ppx-flags": [ "let-anything/ppx" ],
     "bsc-flags": [ "-w -105", "-bs-super-errors" ]
 }
