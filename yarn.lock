@@ -616,6 +616,11 @@ browser-resolve@^1.11.3:
   dependencies:
     resolve "1.1.7"
 
+bs-let@^0.1.9:
+  version "0.1.9"
+  resolved "https://registry.yarnpkg.com/bs-let/-/bs-let-0.1.9.tgz#bf2418bfd2a1629bdb4c72d6a66ed5d6df7dc5d3"
+  integrity sha512-bS7afS9OXtv1RiKkRo/rVL/jGR1R0izUUWhWGdoZ0pr7OlHfr/MS2vSADFmOVpHS9CD2weuzV/alJnxbyU7UVw==
+
 bs-platform@6.0.0:
   version "6.0.0"
   resolved "https://registry.yarnpkg.com/bs-platform/-/bs-platform-6.0.0.tgz#92b2a45787538289b63b7a4e3611bb661e01c1f6"

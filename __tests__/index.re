@@ -209,18 +209,18 @@ describe("always", () => {
     });
 });
 
-// describe("Then", () => {
-//     testPromise("let", () => {
-//         let%Then two = resolve(2);
-//         let%Then four = resolve(2 + two);
-//         expect(four) |> toBe(4) |> resolve;
-//     });
+describe("Then", () => {
+    testPromise("let", () => {
+        let%Then two = resolve(2);
+        let%Then four = resolve(2 + two);
+        expect(four) |> toBe(4) |> resolve;
+    });
 
-//     testPromise("try", () => {
-//         let exn = Failure("shucks");
-//         let p = reject(exn);
-//         try%Then p {
-//             | e => Obj.magic(e) |> expect |> toBe(exn) |> resolve
-//         }
-//     });
-// });
+    testPromise("try", () => {
+        let exn = Failure("shucks");
+        let p = reject(exn);
+        try%Then p {
+            | e => Obj.magic(e) |> expect |> toBe(exn) |> resolve
+        }
+    });
+});
