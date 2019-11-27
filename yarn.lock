@@ -625,7 +625,7 @@ browser-resolve@^1.11.3:
   dependencies:
     resolve "1.1.7"
 
-bs-let@^0.1.9:
+bs-let@^0.1.10:
   version "0.1.10"
   resolved "https://registry.yarnpkg.com/bs-let/-/bs-let-0.1.10.tgz#acfcd9640743cda8201b628201fffad296320914"
   integrity sha512-4YOXsX4qgXlToH7ciht8ne9rJpXU90PJo5ozPv7HtQSxFx7XaQ9U6IT7O4RW/TyuUiDyi0AszvwHo/1v1ZKXFg==

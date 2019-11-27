@@ -28,11 +28,13 @@
     "url": "git@github.com:ryb73/prom-ex.git"
   },
   "peerDependencies": {
-    "bs-platform": "^5.0.0 || ^6.0.0"
+    "bs-platform": "^6.0.0"
   },
   "devDependencies": {
     "@glennsl/bs-jest": "^0.4.9",
-    "bs-let": "^0.1.9",
     "bs-platform": "6.0.0"
+  },
+  "dependencies": {
+    "bs-let": "^0.1.10"
   }
 }
