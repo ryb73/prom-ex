@@ -630,10 +630,10 @@ bs-let@^0.1.10:
   resolved "https://registry.yarnpkg.com/bs-let/-/bs-let-0.1.10.tgz#acfcd9640743cda8201b628201fffad296320914"
   integrity sha512-4YOXsX4qgXlToH7ciht8ne9rJpXU90PJo5ozPv7HtQSxFx7XaQ9U6IT7O4RW/TyuUiDyi0AszvwHo/1v1ZKXFg==
 
-bs-platform@6.0.0:
-  version "6.0.0"
-  resolved "https://registry.yarnpkg.com/bs-platform/-/bs-platform-6.0.0.tgz#92b2a45787538289b63b7a4e3611bb661e01c1f6"
-  integrity sha512-6PWtziwGNtR1fbY4EP1h9M8jsLBOVt3/bIa/HCyf6dRA/WNygKXsj3s5QIqmhbjBozCLUtinY8jpas9Y6pdbVA==
+bs-platform@8:
+  version "8.2.0"
+  resolved "https://registry.yarnpkg.com/bs-platform/-/bs-platform-8.2.0.tgz#f3f4c06d5710a4c782f0ed030b1fe11e74a0a6d7"
+  integrity sha512-quvmUac/ZxGDsT7L5+6RNXrLPvLHkWFownacaqlwVoyAm770bPyupTRU49ALPGk3HpjfD5eE+lpGdOSPtuwJiA==
 
 bser@^2.0.0:
   version "2.1.1"
