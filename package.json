@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "jest",
-    "build": "npm run clean && bsb -make-world",
-    "watch": "npm run clean && bsb -make-world -w",
+    "build": "yarn clean && bsb -make-world",
+    "watch": "yarn clean && bsb -make-world -w",
     "clean": "rm -rf lib && bsb -clean-world"
   },
   "files": [
@@ -31,7 +31,8 @@
   },
   "devDependencies": {
     "@glennsl/bs-jest": "^0.5.1",
-    "bs-platform": "8"
+    "bs-platform": "8",
+    "jest": "^26.4.2"
   },
   "dependencies": {
     "bs-let": "^0.1.10"
