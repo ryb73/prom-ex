@@ -30,7 +30,7 @@
     "bs-platform": "6 || 7 || 8"
   },
   "devDependencies": {
-    "@glennsl/bs-jest": "^0.4.9",
+    "@glennsl/bs-jest": "^0.5.1",
     "bs-platform": "8"
   },
   "dependencies": {
